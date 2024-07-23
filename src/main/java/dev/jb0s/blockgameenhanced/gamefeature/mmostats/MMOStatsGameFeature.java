@@ -80,11 +80,16 @@ public class MMOStatsGameFeature extends GameFeature {
             String[] split = data.split(" - ");
             String[] professionInfo = split[0].split(" ");
 
-            MMOProfession prof = MMOProfession.valueOf(professionInfo[0].trim().toUpperCase());
-            float gained = Float.parseFloat(professionInfo[1].substring(1));
+            try {
+                MMOProfession prof = MMOProfession.valueOf(professionInfo[0].trim().toUpperCase());
+                float gained = Float.parseFloat(professionInfo[1].substring(1));
 
-            immersiveIngameHud.getImmersiveExpPopupContainer().showExpPopup(prof, Float.parseFloat(split[1].replace("%", "")), gained);
-            return ActionResult.SUCCESS;
+                immersiveIngameHud.getImmersiveExpPopupContainer().showExpPopup(prof, Float.parseFloat(split[1].replace("%", "")), gained);
+                return ActionResult.SUCCESS;
+            }
+            catch(Exception e) {
+                return ActionResult.FAIL;
+            }
         }
 
         return ActionResult.PASS;

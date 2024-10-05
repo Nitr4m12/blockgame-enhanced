@@ -91,13 +91,15 @@ public class MixinGenericContainerScreen extends HandledScreen<GenericContainerS
 
         if (vendor != null) {
             tex = new Identifier("blockgame", String.format("textures/gui/container/%s.png", vendor.getUi()));
+            tex = new Identifier("blockgame", String.format("textures/gui/vendor/%s.png", vendor.getUi()));
             if (MinecraftClient.getInstance().getResourceManager().getResource(tex).isEmpty())
-                tex = new Identifier("blockgame", "textures/gui/container/common.png");
+                tex = new Identifier("blockgame", "textures/gui/vendor/generic.png");
             backgroundWidth = 256;
             titleX = -32;
         }
         else if (getTitle().getString().equals("Auction House")) {
             tex = new Identifier("blockgame", "textures/gui/container/auction_house.png");
+            tex = new Identifier("blockgame", "textures/gui/vendor/auction_house.png");
             backgroundWidth = 256;
             titleX = 8;
         }

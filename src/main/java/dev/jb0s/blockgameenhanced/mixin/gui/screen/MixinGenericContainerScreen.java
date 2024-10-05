@@ -84,21 +84,20 @@ public class MixinGenericContainerScreen extends HandledScreen<GenericContainerS
     @Override
     public void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         Identifier tex = TEXTURE;
+        boolean enableCustomVendorHud = BlockgameEnhanced.getConfig().getIngameHudConfig().enableCustomVendorHud;
         String vendorName = getTitle().getString().replaceAll(" \\(\\d/\\d\\)", "");
 
         // Find the vendor currently being interacted with
         MMOVendor vendor = MMOVendor.getByName(vendorName);
 
-        if (vendor != null) {
-            tex = new Identifier("blockgame", String.format("textures/gui/container/%s.png", vendor.getUi()));
+        if (vendor != null && enableCustomVendorHud) {
             tex = new Identifier("blockgame", String.format("textures/gui/vendor/%s.png", vendor.getUi()));
             if (MinecraftClient.getInstance().getResourceManager().getResource(tex).isEmpty())
                 tex = new Identifier("blockgame", "textures/gui/vendor/generic.png");
             backgroundWidth = 256;
             titleX = -32;
         }
-        else if (getTitle().getString().equals("Auction House")) {
-            tex = new Identifier("blockgame", "textures/gui/container/auction_house.png");
+        else if (vendorName.equals("ᴀᴜᴄᴛɪᴏɴ") && enableCustomVendorHud) {
             tex = new Identifier("blockgame", "textures/gui/vendor/auction_house.png");
             backgroundWidth = 256;
             titleX = 8;
@@ -112,7 +111,7 @@ public class MixinGenericContainerScreen extends HandledScreen<GenericContainerS
         context.drawTexture(tex, i, j, 0, 0, this.backgroundWidth, this.rows * 18 + 17);
         context.drawTexture(tex, i, j + this.rows * 18 + 17, 0, 126, this.backgroundWidth, 96);
 
-        if(vendor != null) {
+        if(vendor != null && enableCustomVendorHud) {
             // Corners of the window where our Player Entities are rendered
             Vector2i topLeft = new Vector2i(this.x + 176, this.y + 146);
             Vector2i bottomRight = new Vector2i(topLeft.x + 33, topLeft.y + 63);

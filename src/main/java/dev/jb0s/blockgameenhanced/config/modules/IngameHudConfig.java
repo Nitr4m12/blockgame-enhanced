@@ -13,6 +13,10 @@ public class IngameHudConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.Gui.RequiresRestart(value = false)
+    public boolean enableCustomVendorHud;
+
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.Gui.RequiresRestart(value = false)
     public boolean showAdvancedStats;
 
     @ConfigEntry.Gui.Tooltip
@@ -33,6 +37,7 @@ public class IngameHudConfig implements ConfigData {
 
     public IngameHudConfig() {
         enableCustomHud = true;
+        enableCustomVendorHud = true;
         showAdvancedStats = false;
         showCooldownsInHotbar = true;
         showProfessionExpInChat = false;

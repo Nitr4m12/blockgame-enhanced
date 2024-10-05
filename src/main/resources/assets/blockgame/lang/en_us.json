@@ -88,6 +88,8 @@
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig": "Ingame HUD Config",
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.enableCustomHud": "Enable custom HUD",
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.enableCustomHud.@Tooltip": "Enable a special HUD layout more tailored to Blockgame.",
+	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.enableCustomVendorHud": "Enable custom vendor HUD",
+	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.enableCustomVendorHud.@Tooltip": "Enable custom HUD layouts for vendors in Blockgame.",
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.showAdvancedStats": "Enable vanilla stats widget",
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.showAdvancedStats.@Tooltip": "Displays the vanilla stats bar above the hotbar.",
 	"text.autoconfig.blockgameenhanced.option.ingameHudConfig.showCooldownsInHotbar": "Enable hotbar cooldowns",
